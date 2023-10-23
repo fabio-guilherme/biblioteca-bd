@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class BdTeste {
-    public static void main(String[] arg) {
+    public static void teste() {
         Connection connection;
         try {
             // As duas linhas abaixo são usadas para conectividade.
