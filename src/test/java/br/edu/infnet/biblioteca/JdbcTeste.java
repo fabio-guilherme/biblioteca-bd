@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class BdTeste {
+public class JdbcTeste {
     public static void teste() {
         Connection connection;
         try {
