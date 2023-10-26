@@ -22,16 +22,16 @@ public class HibernateTeste {
         editora.setCidade("Cidade C");
 
         // Salva a editora
-        editoraService.save(editora);
+        editoraService.salvar(editora);
         listaEditoras("Nova editora", editoraService);
 
         // Atualiza a editora
         editora.setNome("Editora D");
-        editoraService.update(editora);
+        editoraService.atualizar(editora);
         listaEditoras("Atualiza editora", editoraService);
 
         // Deleta a editora
-        editoraService.delete(editora);
+        editoraService.excluir(editora);
         listaEditoras("Deleta editora", editoraService);
 
         System.out.println("Fim do teste");
@@ -40,9 +40,9 @@ public class HibernateTeste {
     private static void listaEditoras(String message, EditoraService editoraService) {
         System.out.println(message);
         // Lista todas as editoras
-        List<Editora> editoras = editoraService.findAll();
+        List<Editora> editoras = editoraService.buscarTodas();
         for (Editora editora : editoras) {
-            System.out.println("Nome da Editora: " + editora.getNome());
+            System.out.println("Id: " + editora.getId() + " - Nome da Editora: " + editora.getNome());
         }
         System.out.println();
     }

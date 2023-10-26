@@ -9,7 +9,7 @@ import java.util.List;
 
 public class EditoraService {
 
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     public EditoraService() {
         Configuration config = new Configuration();
@@ -17,41 +17,41 @@ public class EditoraService {
         sessionFactory = config.buildSessionFactory();
     }
 
-    public Editora findById(int id) {
-        Session session = sessionFactory.openSession();
-        Editora editora = session.get(Editora.class, id);
-        session.close();
+    public Editora buscarPorId(int id) {
+        Session sessao = sessionFactory.openSession();
+        Editora editora = sessao.get(Editora.class, id);
+        sessao.close();
         return editora;
     }
 
-    public List<Editora> findAll() {
-        Session session = sessionFactory.openSession();
-        List<Editora> editoras = session.createQuery("FROM Editora", Editora.class).list();
-        session.close();
+    public List<Editora> buscarTodas() {
+        Session sessao = sessionFactory.openSession();
+        List<Editora> editoras = sessao.createQuery("FROM Editora", Editora.class).list();
+        sessao.close();
         return editoras;
     }
 
-    public void save(Editora editora) {
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.save(editora);
-        session.getTransaction().commit();
-        session.close();
+    public void salvar(Editora editora) {
+        Session sessao = sessionFactory.openSession();
+        sessao.beginTransaction();
+        sessao.persist(editora);
+        sessao.getTransaction().commit();
+        sessao.close();
     }
 
-    public void update(Editora editora) {
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.merge(editora);
-        session.getTransaction().commit();
-        session.close();
+    public void atualizar(Editora editora) {
+        Session sessao = sessionFactory.openSession();
+        sessao.beginTransaction();
+        sessao.merge(editora);
+        sessao.getTransaction().commit();
+        sessao.close();
     }
 
-    public void delete(Editora editora) {
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.delete(editora);
-        session.getTransaction().commit();
-        session.close();
+    public void excluir(Editora editora) {
+        Session sessao = sessionFactory.openSession();
+        sessao.beginTransaction();
+        sessao.remove(editora);
+        sessao.getTransaction().commit();
+        sessao.close();
     }
 }

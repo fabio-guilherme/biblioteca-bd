@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="br.edu.infnet.biblioteca.model.domain.Livro" table="livro">
+        <!-- Mapeamento das propriedades do Livro -->
+
+        <many-to-one name="editora" class="br.edu.infnet.biblioteca.model.domain.Editora" column="editora_id" />
+    </class>
+</hibernate-mapping>
