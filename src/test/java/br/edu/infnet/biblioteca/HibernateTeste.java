@@ -1,7 +1,9 @@
 package br.edu.infnet.biblioteca;
 
 import br.edu.infnet.biblioteca.model.domain.Editora;
+import br.edu.infnet.biblioteca.model.domain.Livro;
 import br.edu.infnet.biblioteca.service.EditoraService;
+import br.edu.infnet.biblioteca.service.LivroService;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -10,7 +12,7 @@ import java.util.List;
 
 public class HibernateTeste {
 
-    public static void teste() {
+    public static void testeEditora() {
         System.out.println("Início do teste");
 
         EditoraService editoraService = new EditoraService();
@@ -43,6 +45,22 @@ public class HibernateTeste {
         List<Editora> editoras = editoraService.buscarTodas();
         for (Editora editora : editoras) {
             System.out.println("Id: " + editora.getId() + " - Nome da Editora: " + editora.getNome());
+        }
+        System.out.println();
+    }
+    public static void testeLivro() {
+        System.out.println("Início do teste");
+
+        LivroService livroService = new LivroService();
+        listaLivros("Estado inicial", livroService);
+    }
+
+    private static void listaLivros(String message, LivroService LivroService) {
+        System.out.println(message);
+        // Lista todas as editoras
+        List<Livro> livros = LivroService.buscarTodos();
+        for (Livro livro : livros) {
+            System.out.println("Id: " + livro.getId() + " - Nome do Livro: " + livro.getTitulo());
         }
         System.out.println();
     }

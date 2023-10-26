@@ -49,7 +49,7 @@ public class LivroService {
     public void excluir(Livro livro) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.delete(livro);
+        session.remove(livro);
         session.getTransaction().commit();
         session.close();
     }
