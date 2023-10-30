@@ -1,13 +1,25 @@
 package br.edu.infnet.biblioteca.model.domain;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "editora")
 public class Editora {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "nome")
     private String nome;
 
+    @Column(name = "cidade")
     private String cidade;
 
-    // Getters e setters
+    public Editora() {
+        // Empty constructor
+    }
+
+    // Getters and setters
 
     public int getId() {
         return id;

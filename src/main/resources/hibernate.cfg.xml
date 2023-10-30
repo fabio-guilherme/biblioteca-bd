@@ -10,8 +10,9 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <!--Configuração para mostrar as instruções SQL-->
         <property name="show_sql">true</property>
-        <!--mapping class="br.edu.infnet.biblioteca.model.domain.Editora"/-->
-        <mapping resource="Editora.hbm.xml"/>
-        <mapping resource="Livro.hbm.xml"/>
+        <mapping class="br.edu.infnet.biblioteca.model.domain.Editora"/>
+        <!--mapping resource="Editora.hbm.xml"/-->
+        <mapping class="br.edu.infnet.biblioteca.model.domain.Livro"/>
+        <!--mapping resource="Livro.hbm.xml"/-->
     </session-factory>
 </hibernate-configuration>
