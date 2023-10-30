@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 import java.util.List;
 
 public class LivroService {
+
     private final SessionFactory sessionFactory;
 
     public LivroService() {

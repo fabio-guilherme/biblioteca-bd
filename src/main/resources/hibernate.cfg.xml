@@ -12,5 +12,6 @@
         <property name="show_sql">true</property>
         <!--mapping class="br.edu.infnet.biblioteca.model.domain.Editora"/-->
         <mapping resource="Editora.hbm.xml"/>
+        <mapping resource="Livro.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

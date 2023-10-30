@@ -36,4 +36,20 @@ public class Livro {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public Editora getEditora() {
+        return editora;
+    }
+
+    public void setEditora(Editora editora) {
+        this.editora = editora;
+    }
 }
