@@ -7,11 +7,11 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 
-public class LivroService {
+public class LivroServiceHibernate {
 
     private final SessionFactory sessionFactory;
 
-    public LivroService() {
+    public LivroServiceHibernate() {
         Configuration config = new Configuration();
         config.configure("hibernate.cfg.xml");
         sessionFactory = config.buildSessionFactory();
