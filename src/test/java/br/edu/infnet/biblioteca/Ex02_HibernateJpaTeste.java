@@ -10,7 +10,7 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 
-public class HibernateJpaTeste {
+public class Ex02_HibernateJpaTeste {
 
     public static void testeEditora(EditoraService editoraService) {
         System.out.println("Início do teste - " + editoraService.getClass() + "\n");
