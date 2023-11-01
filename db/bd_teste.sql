@@ -53,7 +53,7 @@ INSERT INTO livro (titulo, ano, editora_id) VALUES
     ('Livro 3', 2019, 2);
 
 -- Insere dados de exemplo na tabela de junção livro_autor
-INSERT INTO livro_autores (livro_id, autor_id) VALUES
+INSERT INTO livro_autor (livro_id, autor_id) VALUES
     (1, 1),
     (1, 2),
     (2, 2),

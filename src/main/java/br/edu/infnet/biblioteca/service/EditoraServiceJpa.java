@@ -24,15 +24,22 @@ public class EditoraServiceJpa extends EditoraService {
     }
 
     public Editora salvar(Editora editora) {
+        entityManager.getTransaction( ).begin( );
         entityManager.persist(editora);
+        entityManager.getTransaction( ).commit( );
         return editora;
     }
 
     public Editora atualizar(Editora editora) {
-        return entityManager.merge(editora);
+        entityManager.getTransaction( ).begin( );
+        entityManager.merge(editora);
+        entityManager.getTransaction( ).commit( );
+        return editora;
     }
 
     public void excluir(Editora editora) {
+        entityManager.getTransaction( ).begin( );
         entityManager.remove(editora);
+        entityManager.getTransaction( ).commit( );
     }
 }
