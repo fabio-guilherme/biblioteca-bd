@@ -1,6 +1,6 @@
 package br.edu.infnet.biblioteca.model.domain;
 
-//import javax.persistence.*;
+//import javax.persistence.*;   // Versões mais antigas
 import jakarta.persistence.*;
 
 @Entity

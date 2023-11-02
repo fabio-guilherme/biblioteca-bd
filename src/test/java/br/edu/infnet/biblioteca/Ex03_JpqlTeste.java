@@ -17,7 +17,7 @@ public class Ex03_JpqlTeste {
 
         //todasEditoras();
         //todosLivros();
-        livrosPorEditora("Editora B");
+        livrosPorEditora("Editora A");
     }
 
     private static void todasEditoras() {
