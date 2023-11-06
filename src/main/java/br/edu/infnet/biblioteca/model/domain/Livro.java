@@ -1,7 +1,10 @@
 package br.edu.infnet.biblioteca.model.domain;
 
 //import javax.persistence.*;   // Versões mais antigas
+
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "livro")
@@ -20,6 +23,14 @@ public class Livro {
     @ManyToOne
     @JoinColumn(name = "editora_id")
     private Editora editora;
+
+    @ManyToMany(mappedBy = "livros",
+            fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
+    private List<Autor> autores;
 
     // Getters e setters
     public int getId() {
