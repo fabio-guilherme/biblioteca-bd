@@ -25,7 +25,7 @@ public class Livro {
     private Editora editora;
 
     @ManyToMany(mappedBy = "livros",
-            fetch = FetchType.LAZY,
+            fetch = FetchType.EAGER,
             cascade = {
                     CascadeType.PERSIST,
                     CascadeType.MERGE

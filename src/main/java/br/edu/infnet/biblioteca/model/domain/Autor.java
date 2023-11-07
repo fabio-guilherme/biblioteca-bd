@@ -22,7 +22,7 @@ public class Autor {
     @Column(name = "nascimento", nullable = false)
     private Date nascimento;
 
-    @ManyToMany(fetch = FetchType.LAZY,
+    @ManyToMany(fetch = FetchType.EAGER,
                 cascade = {
                     CascadeType.PERSIST,
                     CascadeType.MERGE

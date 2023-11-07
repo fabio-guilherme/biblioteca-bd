@@ -3,10 +3,12 @@ package br.edu.infnet.biblioteca.repository;
 import br.edu.infnet.biblioteca.model.domain.Autor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
+import java.util.Objects;
 
 public class AutorRepository {
 
@@ -45,8 +47,16 @@ public class AutorRepository {
     }
 
     public void salvar(Autor autor) throws SQLException {
+        KeyHolder keyHolder = new GeneratedKeyHolder();
         String sql = "INSERT INTO autor (nome, nascimento) VALUES (?, ?)";
-        jdbcTemplate.update(sql, autor.getNome(), autor.getNascimento());
+        //jdbcTemplate.update(sql, autor.getNome(), autor.getNascimento());
+        jdbcTemplate.update(connection -> {
+            PreparedStatement pst = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            pst.setString(1, autor.getNome());
+            pst.setDate(2, new java.sql.Date(autor.getNascimento().getTime()));
+            return pst;
+        }, keyHolder);
+        autor.setId(Objects.requireNonNull(keyHolder.getKey()).longValue());
     }
 
     public void atualizar(Autor autor) throws SQLException {

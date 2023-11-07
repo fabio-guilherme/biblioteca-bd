@@ -38,13 +38,13 @@ public class Ex04_JdbcTemplateTeste {
 
         // Atualiza um autor
         System.out.println("\nTestando: atualizando um autor");
-        autor.setNome("Autor Atualizado");
-        autorRepository.atualizar(autor);
+        novoAutor.setNome("Autor Atualizado");
+        autorRepository.atualizar(novoAutor);
         listaAutores(autorRepository);
 
         // Exclui um autor
         System.out.println("\nTestando: excluindo um autor");
-        autorRepository.excluir(4L);
+        autorRepository.excluir(novoAutor.getId());
         listaAutores(autorRepository);
     }
 
