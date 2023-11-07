@@ -16,8 +16,8 @@ public class Ex03_JpqlTeste {
         em = emfactory.createEntityManager();
 
         //todasEditoras();
-        //todosLivros();
-        livrosPorEditora("Editora A");
+        todosLivros();
+        //livrosPorEditora("Editora A");
     }
 
     private static void todasEditoras() {
@@ -35,6 +35,7 @@ public class Ex03_JpqlTeste {
                                 + " - Título do Livro: " + livro.getTitulo()
                                 + " - Editora: " + livro.getEditora().getNome()
                                 + " - Cidade da Editora: " + livro.getEditora().getCidade());
+            //TODO: System.out.println("Autores: " + livro.getAutores().size());
         }
     }
 

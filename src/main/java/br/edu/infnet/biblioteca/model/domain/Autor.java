@@ -23,7 +23,7 @@ public class Autor {
     private Date nascimento;
 
     @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {
+                cascade = {
                     CascadeType.PERSIST,
                     CascadeType.MERGE
             })
@@ -36,6 +36,12 @@ public class Autor {
     }
 
     public Autor(String nome, Date nascimento) {
+        this.nome = nome;
+        this.nascimento = nascimento;
+    }
+
+    public Autor(long id, String nome, Date nascimento) {
+        this.id = id;
         this.nome = nome;
         this.nascimento = nascimento;
     }
@@ -72,4 +78,19 @@ public class Autor {
         this.livros = livros;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder autorStr = new StringBuilder("Autor {" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", nascimento='" + nascimento + '\'');
+        if (livros != null) {
+            for (Livro livro : livros) {
+                autorStr.append(livro.getTitulo()).append(";");
+            }
+        }
+        autorStr.append('}');
+
+        return autorStr.toString();
+    }
 }

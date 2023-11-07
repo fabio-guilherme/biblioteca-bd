@@ -3,6 +3,8 @@ package br.edu.infnet.biblioteca;
 // import br.edu.infnet.biblioteca.service.EditoraServiceHibernate;
 // import br.edu.infnet.biblioteca.service.EditoraServiceJpa;
 
+import java.sql.SQLException;
+
 public class Main {
     public static void main(String[] arg) {
         // Comentar os testes que não quiser fazer
@@ -19,6 +21,12 @@ public class Main {
         // Ex02_HibernateJpaTeste.testeEditora(editoraServiceHibernate);        // Teste Hibernate (2a. semana)
         // Ex02_HibernateJpaTeste.testeEditora(editoraServiceJpa);              // Teste Hibernate (2a. semana)
 
-        Ex03_JpqlTeste.teste();
+        //Ex03_JpqlTeste.teste();
+
+        try {
+            Ex04_JdbcTemplateTeste.teste();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -64,4 +64,12 @@ public class Livro {
     public void setEditora(Editora editora) {
         this.editora = editora;
     }
+
+    public List<Autor> getAutores() {
+        return autores;
+    }
+
+    public void setAutores(List<Autor> autores) {
+        this.autores = autores;
+    }
 }
