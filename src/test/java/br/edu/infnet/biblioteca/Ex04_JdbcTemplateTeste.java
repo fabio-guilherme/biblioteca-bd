@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 public class Ex04_JdbcTemplateTeste {
@@ -28,24 +29,23 @@ public class Ex04_JdbcTemplateTeste {
         System.out.println("\nTestando: buscando um autor");
         Autor autor = autorRepository.buscarPorId(1L);
         System.out.println(autor);
-/*
+
         // Salva um autor
         System.out.println("\nTestando: salvando um autor");
         Autor novoAutor = new Autor("Autor 4", new Date());
         autorRepository.salvar(novoAutor);
+        listaAutores(autorRepository);
 
         // Atualiza um autor
         System.out.println("\nTestando: atualizando um autor");
         autor.setNome("Autor Atualizado");
         autorRepository.atualizar(autor);
-
-        // Exclui um autor
-        // autorRepository.excluir(2L);
-
-        // Lista todos os autores
         listaAutores(autorRepository);
 
- */
+        // Exclui um autor
+        System.out.println("\nTestando: excluindo um autor");
+        autorRepository.excluir(4L);
+        listaAutores(autorRepository);
     }
 
     private static void listaAutores(AutorRepository autorRepository) throws SQLException {
