@@ -24,7 +24,7 @@ public class Main {
         //Ex03_JpqlTeste.teste();
 
         try {
-            Ex04_JdbcTemplateTeste.teste();
+            Ex04_JdbcTemplateTeste.testeLivro();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -21,4 +21,9 @@
         <constructor-arg ref="jdbcTemplate" />
     </bean>
 
+    <!-- Configuração do seu repositório de Livro -->
+    <bean id="livroService" class="br.edu.infnet.biblioteca.repository.LivroRepository">
+        <constructor-arg ref="jdbcTemplate" />
+    </bean>
+
 </beans>
