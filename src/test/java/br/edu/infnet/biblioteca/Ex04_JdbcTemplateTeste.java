@@ -1,8 +1,10 @@
 package br.edu.infnet.biblioteca;
 
 import br.edu.infnet.biblioteca.model.domain.Autor;
+import br.edu.infnet.biblioteca.model.domain.Editora;
 import br.edu.infnet.biblioteca.model.domain.Livro;
 import br.edu.infnet.biblioteca.repository.AutorRepository;
+import br.edu.infnet.biblioteca.repository.EditoraRepository;
 import br.edu.infnet.biblioteca.repository.LivroRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -62,7 +64,7 @@ public class Ex04_JdbcTemplateTeste {
         // Carregue o contexto de aplicação do Spring
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        // Obtenha o bean do repositório de Autor
+        // Obtenha o bean do repositório de Livro
         jdbcTemplate = new JdbcTemplate();
         LivroRepository livroRepository = context.getBean(LivroRepository.class);
         // LivroRepository livroRepository = new AutorRepository(jdbcTemplate);
@@ -70,25 +72,27 @@ public class Ex04_JdbcTemplateTeste {
         // Lista todos os livros
         listaLivros(livroRepository);
 
-        // Busca um autor pelo ID
+        // Busca um livro pelo ID
         System.out.println("\nTestando: buscando um livro");
         Livro livro = livroRepository.buscarPorId(1L);
         System.out.println(livro);
 
-        // Salva um autor
+        // Salva um livro
         System.out.println("\nTestando: salvando um livro");
-        Livro novoLivro = new Livro("Livro Novo", 2023);
+        EditoraRepository editoraRepository = context.getBean(EditoraRepository.class);
+        Editora editora = editoraRepository.buscarPorId(1L);
+        Livro novoLivro = new Livro("Livro Novo", 2023, editora);
         livroRepository.salvar(novoLivro);
         listaLivros(livroRepository);
 
-        // Atualiza um autor
-        System.out.println("\nTestando: atualizando um autor");
+        // Atualiza um livro
+        System.out.println("\nTestando: atualizando um livro");
         novoLivro.setTitulo("Título Atualizado");
         livroRepository.atualizar(novoLivro);
         listaLivros(livroRepository);
 
-        // Exclui um autor
-        System.out.println("\nTestando: excluindo um autor");
+        // Exclui um livro
+        System.out.println("\nTestando: excluindo um livro");
         livroRepository.excluir(novoLivro.getId());
         listaLivros(livroRepository);
     }

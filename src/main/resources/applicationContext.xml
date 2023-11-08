@@ -20,10 +20,12 @@
     <bean id="autorService" class="br.edu.infnet.biblioteca.repository.AutorRepository">
         <constructor-arg ref="jdbcTemplate" />
     </bean>
-
     <!-- Configuração do seu repositório de Livro -->
     <bean id="livroService" class="br.edu.infnet.biblioteca.repository.LivroRepository">
         <constructor-arg ref="jdbcTemplate" />
     </bean>
-
+    <!-- Configuração do seu repositório de Editora -->
+    <bean id="editoraService" class="br.edu.infnet.biblioteca.repository.EditoraRepository">
+        <constructor-arg ref="jdbcTemplate" />
+    </bean>
 </beans>

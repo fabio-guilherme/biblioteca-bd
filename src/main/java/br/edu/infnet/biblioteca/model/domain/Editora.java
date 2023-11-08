@@ -1,6 +1,7 @@
 package br.edu.infnet.biblioteca.model.domain;
 
 //import javax.persistence.*;   // Versões mais antigas
+
 import jakarta.persistence.*;
 
 @Entity
@@ -18,6 +19,17 @@ public class Editora {
 
     public Editora() {
         // Empty constructor
+    }
+
+    public Editora(String nome, String cidade) {
+        this.nome = nome;
+        this.cidade = cidade;
+    }
+
+    public Editora(int id, String nome, String cidade) {
+        this.id = id;
+        this.nome = nome;
+        this.cidade = cidade;
     }
 
     // Getters and setters
@@ -44,5 +56,15 @@ public class Editora {
 
     public void setCidade(String cidade) {
         this.cidade = cidade;
+    }
+    @Override
+    public String toString() {
+        StringBuilder editoraStr = new StringBuilder("Editora {" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", cidade='" + cidade + '\'');
+        editoraStr.append('}');
+
+        return editoraStr.toString();
     }
 }

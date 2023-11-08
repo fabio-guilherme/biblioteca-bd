@@ -34,15 +34,18 @@ public class Livro {
 
     public Livro() {
     }
-    public Livro(String titulo, int ano) {
+
+    public Livro(String titulo, int ano, Editora editora) {
         this.titulo = titulo;
         this.ano = ano;
+        this.editora = editora;
     }
 
-    public Livro(int id, String titulo, int ano) {
+    public Livro(int id, String titulo, int ano, Editora editora) {
         this.id = id;
         this.titulo = titulo;
         this.ano = ano;
+        this.editora = editora;
     }
 
     // Getters e setters
@@ -87,17 +90,18 @@ public class Livro {
     }
     @Override
     public String toString() {
-        StringBuilder autorStr = new StringBuilder("Autor {" +
+        StringBuilder livroStr = new StringBuilder("Livro {" +
                 "id=" + id +
                 ", título='" + titulo + '\'' +
-                ", ano='" + ano + '\'');
+                ", ano='" + ano + '\'' +
+                ", editora=" + editora  + '\'');
         if (autores != null) {
             for (Autor autor : autores) {
-                autorStr.append(autor.getNome()).append(";");
+                livroStr.append(autor.getNome()).append(";");
             }
         }
-        autorStr.append('}');
+        livroStr.append('}');
 
-        return autorStr.toString();
+        return livroStr.toString();
     }
 }
